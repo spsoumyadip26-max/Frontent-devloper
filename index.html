@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Fast-Track Frontend Development Roadmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f0f13;
+            --surface: #1a1a24;
+            --surface-2: #22222e;
+            --border: #2e2e3e;
+            --text: #e8e8ed;
+            --text-muted: #9a9ab0;
+            --accent: #7c5cfc;
+            --accent-light: #9b82fc;
+            --green: #34d399;
+            --green-bg: rgba(52, 211, 153, 0.08);
+            --orange: #fb923c;
+            --orange-bg: rgba(251, 146, 60, 0.08);
+            --red: #f87171;
+            --red-bg: rgba(248, 113, 113, 0.08);
+            --blue: #60a5fa;
+            --blue-bg: rgba(96, 165, 250, 0.08);
+            --cyan: #22d3ee;
+            --cyan-bg: rgba(34, 211, 238, 0.08);
+            --pink: #f472b6;
+            --pink-bg: rgba(244, 114, 182, 0.08);
+            --yellow: #facc15;
+            --yellow-bg: rgba(250, 204, 21, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 32px;
+        }
+
+        /* ── Hero Header ── */
+        .hero {
+            text-align: center;
+            padding: 48px 24px 40px;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, rgba(124,92,252,0.12) 0%, rgba(96,165,250,0.08) 50%, rgba(34,211,238,0.06) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(124,92,252,0.15), transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-emoji {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #7c5cfc, #60a5fa, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .hero p {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ── Phase Card ── */
+        .phase {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 28px;
+            page-break-inside: avoid;
+        }
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .phase-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .phase-1 .phase-number { background: rgba(124,92,252,0.15); color: var(--accent-light); }
+        .phase-2 .phase-number { background: var(--blue-bg); color: var(--blue); }
+        .phase-3 .phase-number { background: var(--cyan-bg); color: var(--cyan); }
+        .phase-4 .phase-number { background: var(--orange-bg); color: var(--orange); }
+        .phase-5 .phase-number { background: var(--green-bg); color: var(--green); }
+        .phase-6 .phase-number { background: var(--pink-bg); color: var(--pink); }
+
+        .phase-title {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+        .phase-priority {
+            margin-left: auto;
+            font-size: 13px;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+        .phase-priority .stars {
+            color: var(--yellow);
+            letter-spacing: 1px;
+        }
+
+        /* ── Subsections ── */
+        .sub-section {
+            margin-bottom: 20px;
+        }
+        .sub-section:last-child {
+            margin-bottom: 0;
+        }
+        .sub-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        .sub-title.green { color: var(--green); }
+        .sub-title.orange { color: var(--orange); }
+        .sub-title.red { color: var(--red); }
+        .sub-title.blue { color: var(--blue); }
+        .sub-title.accent { color: var(--accent-light); }
+
+        /* ── Tag / Pill Lists ── */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            background: var(--surface-2);
+        }
+        .tag code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--accent-light);
+        }
+
+        /* ── Flow Diagram ── */
+        .flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            padding: 16px 0;
+        }
+        .flow-item {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            min-width: 200px;
+        }
+        .flow-arrow {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1;
+            padding: 3px 0;
+        }
+
+        /* ── Bullet list ── */
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+        }
+        .bullet-list li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: var(--text);
+        }
+        .bullet-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-light);
+            font-weight: 700;
+        }
+        .bullet-list.green li::before { color: var(--green); content: '✓'; }
+        .bullet-list.red li::before { color: var(--red); content: '✕'; }
+        .bullet-list.orange li::before { color: var(--orange); }
+
+        /* ── Code list ── */
+        .code-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .code-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            padding: 4px 12px;
+            background: rgba(124,92,252,0.1);
+            border: 1px solid rgba(124,92,252,0.2);
+            border-radius: 6px;
+            color: var(--accent-light);
+        }
+
+        /* ── Practice Projects ── */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 10px;
+        }
+        .project-card {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .project-card .emoji {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* ── Info Box ── */
+        .info-box {
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-size: 14px;
+            border-left: 4px solid;
+        }
+        .info-box.tip {
+            background: var(--green-bg);
+            border-color: var(--green);
+        }
+        .info-box.warn {
+            background: var(--orange-bg);
+            border-color: var(--orange);
+        }
+        .info-box.important {
+            background: rgba(124,92,252,0.08);
+            border-color: var(--accent);
+        }
+        .info-box strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* ── Table ── */
+        .schedule-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            font-size: 14px;
+        }
+        .schedule-table th {
+            background: var(--surface-2);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+        }
+        .schedule-table td {
+            padding: 10px 16px;
+            border-top: 1px solid var(--border);
+        }
+        .schedule-table tr:nth-child(even) td {
+            background: rgba(255,255,255,0.01);
+        }
+        .day-badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .day-1 { background: rgba(124,92,252,0.15); color: var(--accent-light); }
+        .day-2 { background: var(--cyan-bg); color: var(--cyan); }
+        .day-3 { background: var(--blue-bg); color: var(--blue); }
+        .day-4 { background: var(--green-bg); color: var(--green); }
+        .day-5 { background: var(--orange-bg); color: var(--orange); }
+        .day-6 { background: var(--pink-bg); color: var(--pink); }
+        .day-7 { background: var(--red-bg); color: var(--red); }
+        .day-8 { background: var(--yellow-bg); color: #b89b00; }
+
+        /* ── Daily Formula ── */
+        .formula-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .formula-card {
+            border-radius: 10px;
+            padding: 14px 18px;
+            font-size: 14px;
+        }
+        .formula-card.do {
+            background: var(--green-bg);
+            border: 1px solid rgba(52,211,153,0.2);
+        }
+        .formula-card.dont {
+            background: var(--red-bg);
+            border: 1px solid rgba(248,113,113,0.2);
+        }
+        .formula-card .label {
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .formula-card.do .label { color: var(--green); }
+        .formula-card.dont .label { color: var(--red); }
+        .formula-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .formula-card ul li {
+            margin-bottom: 4px;
+        }
+
+        /* ── Tree Diagram ── */
+        .tree-box {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            overflow-x: auto;
+            white-space: pre;
+            color: var(--text-muted);
+        }
+        .tree-box .hl-accent { color: var(--accent-light); font-weight: 600; }
+        .tree-box .hl-blue { color: var(--blue); font-weight: 600; }
+        .tree-box .hl-green { color: var(--green); font-weight: 600; }
+        .tree-box .hl-orange { color: var(--orange); font-weight: 600; }
+
+        /* ── Quote Box ── */
+        .quote-box {
+            background: linear-gradient(135deg, rgba(124,92,252,0.08), rgba(96,165,250,0.06));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+        .quote-box .vs {
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 400;
+            margin: 8px 0;
+        }
+        .quote-box .good { color: var(--green); }
+        .quote-box .bad { color: var(--red); text-decoration: line-through; opacity: 0.7; }
+
+        /* ── Priority Bar ── */
+        .priority-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .priority-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .priority-item .num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        .priority-item:nth-child(1) .num { background: rgba(124,92,252,0.2); color: var(--accent-light); }
+        .priority-item:nth-child(2) .num { background: var(--blue-bg); color: var(--blue); }
+        .priority-item:nth-child(3) .num { background: var(--cyan-bg); color: var(--cyan); }
+        .priority-item:nth-child(4) .num { background: var(--green-bg); color: var(--green); }
+        .priority-item:nth-child(5) .num { background: var(--orange-bg); color: var(--orange); }
+        .priority-item:nth-child(6) .num { background: var(--pink-bg); color: var(--pink); }
+        .priority-item:nth-child(7) .num { background: var(--yellow-bg); color: #b89b00; }
+        .priority-item:nth-child(8) .num { background: var(--red-bg); color: var(--red); }
+        .priority-item .arrow {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-left: auto;
+        }
+
+        /* ── Horizontal rule ── */
+        .divider {
+            border: none;
+            height: 1px;
+            background: var(--border);
+            margin: 12px 0;
+        }
+
+        /* ── Note at top ── */
+        .note-small {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            padding: 32px 0 16px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* ── Print Styles ── */
+        @media print {
+            body {
+                background: var(--bg) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .container {
+                padding: 20px;
+            }
+            .phase {
+                page-break-inside: avoid;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* ── Print Button ── */
+        .print-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: linear-gradient(135deg, #7c5cfc, #60a5fa);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(124,92,252,0.35);
+            z-index: 1000;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(124,92,252,0.45);
+        }
+    </style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">📄 Save as PDF</button>
+
+<div class="container">
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <div class="hero">
+        <div class="hero-emoji">🚀</div>
+        <h1>Fast-Track Frontend Roadmap</h1>
+        <p>A structured, no-fluff guide to becoming a frontend developer — from fundamentals to React.</p>
+    </div>
+
+    <!-- ═══════════ PHASE 1 ═══════════ -->
+    <div class="phase phase-1">
+        <div class="phase-header">
+            <div class="phase-number">1</div>
+            <div class="phase-title">JavaScript Fundamentals</div>
+            <div class="phase-priority"><span class="stars">⭐⭐⭐⭐⭐</span></div>
+        </div>
+
+        <div class="sub-section">
+            <div class="sub-title green">✅ Learn these first</div>
+            <div class="tag-list">
+                <span class="tag"><code>let</code>, <code>const</code></span>
+                <span class="tag">Data types</span>
+                <span class="tag"><code>if / else</code></span>
+                <span class="tag">Loops</span>
+                <span class="tag">Functions</span>
+                <span class="tag">Arrays</span>
+                <span class="tag">Objects</span>
+                <span class="tag">Strings</span>
+                <span class="tag">Basic DOM</span>
+                <span class="tag">Events</span>
+                <span class="tag"><code>map()</code> <code>filter()</code> <code>reduce()</code></span>
+                <span class="tag"><code>forEach()</code></span>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="sub-section">
+            <div class="sub-title orange">⏩ Don't spend too much time on</div>
+            <ul class="bullet-list orange">
+                <li>Very basic syntax you already understand</li>
+                <li>Watching every example multiple times</li>
+            </ul>
+        </div>
+
+        <div class="info-box tip">
+            <strong>🎯 Goal</strong>
+            You should be able to make a small interactive webpage without copying a tutorial.
+        </div>
+    </div>
+
+    <!-- ═══════════ PHASE 2 ═══════════ -->
+    <div class="phase phase-2">
+        <div class="phase-header">
+            <div class="phase-number">2</div>
+            <div class="phase-title">DOM + Browser JavaScript</div>
+            <div class="phase-priority"><span class="stars">⭐⭐⭐⭐⭐</span></div>
+        </div>
+
+        <div class="sub-section">
+            <div class="sub-title blue">📐 Learning flow</div>
+            <div class="flow">
+                <div class="flow-item">HTML element selection</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Change text / content</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Change CSS / classes</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Handle click / input events</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Read user input</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Update the page dynamically</div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="sub-section">
+            <div class="sub-title green">🛠️ Practice by building</div>
+            <div class="project-grid">
+                <div class="project-card"><span class="emoji">🔢</span>Counter</div>
+                <div class="project-card"><span class="emoji">📝</span>To-do List</div>
+                <div class="project-card"><span class="emoji">❓</span>Quiz App</div>
+                <div class="project-card"><span class="emoji">⏱️</span>Countdown</div>
+                <div class="project-card"><span class="emoji">🧮</span>Calculator</div>
+            </div>
+        </div>
+
+        <div class="info-box tip">
+            <strong>💡 Note</strong>
+            You already have a quiz app and animated countdown project — use those to reinforce these concepts instead of building from scratch again.
+        </div>
+    </div>
+
+    <!-- ═══════════ PHASE 3 ═══════════ -->
+    <div class="phase phase-3">
+        <div class="phase-header">
+            <div class="phase-number">3</div>
+            <div class="phase-title">HTML + CSS Properly</div>
+            <div class="phase-priority"><span class="stars">⭐⭐⭐⭐</span></div>
+        </div>
+
+        <div class="info-box warn">
+            <strong>⚡ Don't try to memorize every CSS property.</strong>
+        </div>
+
+        <div class="sub-section" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+                <div class="sub-title accent">HTML Focus</div>
+                <ul class="bullet-list">
+                    <li>Semantic HTML</li>
+                    <li>Forms</li>
+                    <li>Inputs</li>
+                    <li>Buttons</li>
+                    <li>Accessibility basics</li>
+                </ul>
+            </div>
+            <div>
+                <div class="sub-title accent">CSS Focus</div>
+                <ul class="bullet-list">
+                    <li>Box model</li>
+                    <li><code>display</code></li>
+                    <li>Flexbox</li>
+                    <li>Grid</li>
+                    <li>Positioning</li>
+                    <li>Responsive design</li>
+                    <li>Media queries</li>
+                    <li>Transitions</li>
+                    <li>Basic animations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box important">
+            <strong>🔑 The most important skill</strong>
+            Given a design, can you reproduce it with HTML + CSS?<br>
+            <span style="color: var(--text-muted);">Practice by recreating 3–5 simple websites.</span>
+        </div>
+    </div>
+
+    <!-- ═══════════ PHASE 4 ═══════════ -->
+    <div class="phase phase-4">
+        <div class="phase-header">
+            <div class="phase-number">4</div>
+            <div class="phase-title">Git + GitHub</div>
+            <div class="phase-priority"><span class="stars">⭐⭐⭐⭐</span></div>
+        </div>
+
+        <div class="sub-section">
+            <div class="sub-title blue">📐 Workflow</div>
+            <div class="flow">
+                <div class="flow-item">Create project</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">git init</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">git add .</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">git commit</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">git push</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">GitHub → GitHub Pages</div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="sub-section">
+            <div class="sub-title accent">🔧 Know these commands</div>
+            <div class="code-list">
+                <span class="code-tag">git clone</span>
+                <span class="code-tag">git status</span>
+                <span class="code-tag">git add</span>
+                <span class="code-tag">git commit</span>
+                <span class="code-tag">git push</span>
+                <span class="code-tag">git pull</span>
+                <span class="code-tag">git branch</span>
+                <span class="code-tag">git checkout</span>
+            </div>
+        </div>
+
+        <div class="info-box warn">
+            <strong>⚠️ Don't spend days learning advanced Git.</strong>
+        </div>
+    </div>
+
+    <!-- ═══════════ PHASE 5 ═══════════ -->
+    <div class="phase phase-5">
+        <div class="phase-header">
+            <div class="phase-number">5</div>
+            <div class="phase-title">APIs + Async JavaScript</div>
+            <div class="phase-priority"><span class="stars">⭐⭐⭐⭐⭐</span></div>
+        </div>
+
+        <div class="info-box important">
+            <strong>🔥 This is one of the highest-value sections for you.</strong>
+        </div>
+
+        <div class="sub-section">
+            <div class="sub-title blue">📐 Learning flow</div>
+            <div class="flow">
+                <div class="flow-item"><code>fetch()</code></div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Promise</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item"><code>async / await</code></div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item"><code>try / catch</code></div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">JSON</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">API</div>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="sub-section">
+            <div class="sub-title green">🛠️ Then build</div>
+            <div class="project-grid">
+                <div class="project-card"><span class="emoji">🌤️</span>Weather App</div>
+                <div class="project-card"><span class="emoji">🎬</span>Movie Search</div>
+                <div class="project-card"><span class="emoji">🐙</span>GitHub User Search</div>
+                <div class="project-card"><span class="emoji">💬</span>Random Quote App</div>
+            </div>
+        </div>
+
+        <div class="info-box tip">
+            <strong>💡 Note</strong>
+            Building these will teach you much more than watching another 10 hours of videos.
+        </div>
+    </div>
+
+    <!-- ═══════════ PHASE 6 ═══════════ -->
+    <div class="phase phase-6">
+        <div class="phase-header">
+            <div class="phase-number">6</div>
+            <div class="phase-title">React</div>
+            <div class="phase-priority"><span class="stars">⭐⭐⭐⭐⭐</span></div>
+        </div>
+
+        <div class="info-box warn">
+            <strong>⚠️ Only start React after you are comfortable with JavaScript.</strong>
+        </div>
+
+        <div class="sub-section">
+            <div class="sub-title blue">📐 Learn in this order</div>
+            <div class="flow">
+                <div class="flow-item">Components</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">JSX</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Props</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">State</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Events</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Conditional Rendering</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Lists</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">Forms</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">useEffect</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">API Calls</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-item">React Router</div>
+            </div>
+        </div>
+
+        <div class="info-box warn">
+            <strong>⚠️ Don't try to learn every React library immediately.</strong>
+        </div>
+    </div>
+
+    <!-- ═══════════ SHORTEST ROADMAP ═══════════ -->
+    <div class="phase" style="border-color: rgba(124,92,252,0.3);">
+        <div class="phase-header">
+            <div class="phase-number" style="background: linear-gradient(135deg, rgba(124,92,252,0.2), rgba(96,165,250,0.2)); color: var(--accent-light); width: auto; padding: 0 14px;">🔥</div>
+            <div class="phase-title">Your Shortest Roadmap</div>
+        </div>
+
+        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">If your time is limited, follow this:</p>
+
+        <div class="flow">
+            <div class="flow-item" style="border-color: rgba(124,92,252,0.3);">HTML</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item" style="border-color: rgba(34,211,238,0.3);">CSS</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item" style="border-color: rgba(250,204,21,0.3);">JavaScript</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item" style="border-color: rgba(96,165,250,0.3);">DOM</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item" style="border-color: rgba(52,211,153,0.3);">Async JS + APIs</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item" style="border-color: rgba(251,146,60,0.3);">Git / GitHub</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item" style="border-color: rgba(244,114,182,0.3);">React</div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-item" style="border-color: rgba(248,113,113,0.3);">Projects</div>
+        </div>
+
+        <hr class="divider" style="margin: 20px 0;">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+                <div class="sub-title orange">⏩ Skip / Skim</div>
+                <ul class="bullet-list red">
+                    <li>Basic HTML syntax</li>
+                    <li>Basic CSS syntax</li>
+                    <li>Very basic JS syntax</li>
+                    <li>Repetitive examples</li>
+                    <li>Topics unrelated to your goal</li>
+                </ul>
+            </div>
+            <div>
+                <div class="sub-title green">⏳ Spend real time on</div>
+                <ul class="bullet-list green">
+                    <li>JavaScript logic</li>
+                    <li>DOM</li>
+                    <li>Arrays &amp; Objects</li>
+                    <li>Functions</li>
+                    <li>ES6+</li>
+                    <li>Async/Await</li>
+                    <li>APIs</li>
+                    <li>Git / GitHub</li>
+                    <li>React</li>
+                    <li>Projects</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ 30 DAY PLAN ═══════════ -->
+    <div class="phase" style="border-color: rgba(34,211,238,0.3);">
+        <div class="phase-header">
+            <div class="phase-number" style="background: var(--cyan-bg); color: var(--cyan); width: auto; padding: 0 14px;">⏱️</div>
+            <div class="phase-title">30-Day Fast Plan</div>
+        </div>
+
+        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">If you can study 2–3 hours/day:</p>
+
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Days</th>
+                    <th>Focus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="day-badge day-1">1–3</span></td><td>HTML</td></tr>
+                <tr><td><span class="day-badge day-2">4–7</span></td><td>CSS + responsive design</td></tr>
+                <tr><td><span class="day-badge day-3">8–13</span></td><td>JavaScript fundamentals</td></tr>
+                <tr><td><span class="day-badge day-4">14–17</span></td><td>DOM + events</td></tr>
+                <tr><td><span class="day-badge day-5">18–20</span></td><td>Async JS + APIs</td></tr>
+                <tr><td><span class="day-badge day-6">21–22</span></td><td>Git + GitHub</td></tr>
+                <tr><td><span class="day-badge day-7">23–27</span></td><td>React fundamentals</td></tr>
+                <tr><td><span class="day-badge day-8">28–30</span></td><td>Build one complete project</td></tr>
+            </tbody>
+        </table>
+
+        <hr class="divider" style="margin: 24px 0;">
+
+        <div class="sub-title accent" style="margin-bottom: 14px;">📋 Daily Formula</div>
+        <div class="formula-grid">
+            <div class="formula-card dont">
+                <div class="label">❌ Don't Do</div>
+                <ul><li>🎥 3 hours watching videos</li></ul>
+            </div>
+            <div class="formula-card do">
+                <div class="label">✅ Do Instead</div>
+                <ul>
+                    <li>🎥 45 min learning</li>
+                    <li>💻 60 min coding</li>
+                    <li>🧠 30 min problem solving</li>
+                    <li>🛠️ 15 min reviewing mistakes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ TWO TRACKS ═══════════ -->
+    <div class="phase" style="border-color: rgba(250,204,21,0.3);">
+        <div class="phase-header">
+            <div class="phase-number" style="background: var(--yellow-bg); color: #b89b00; width: auto; padding: 0 14px;">🎯</div>
+            <div class="phase-title">Most Important Rule</div>
+        </div>
+
+        <p style="font-size: 14px; margin-bottom: 16px;">Since you're also working on competitive programming, <strong>keep your two tracks separate:</strong></p>
+
+        <div class="tree-box"><span class="hl-accent">                    YOUR LEARNING</span>
+                         │
+             ┌───────────┴───────────┐
+             │                       │
+  <span class="hl-blue">Competitive Programming</span>         <span class="hl-green">Frontend</span>
+             │                       │
+        <span class="hl-blue">C++ + DSA</span>               <span class="hl-green">HTML/CSS/JS</span>
+             │                       │
+    <span class="hl-blue">Codeforces/LeetCode</span>          <span class="hl-green">React</span></div>
+
+        <p style="font-size: 14px; margin-top: 16px; color: var(--text-muted);">Don't mix the two while studying.</p>
+
+        <hr class="divider" style="margin: 20px 0;">
+
+        <div class="quote-box">
+            <div class="good">Learn → Build → Break → Debug → Rebuild</div>
+            <div class="vs">rather than</div>
+            <div class="bad">Watch → Watch → Watch → Forget</div>
+        </div>
+    </div>
+
+    <!-- ═══════════ PRIORITY LIST ═══════════ -->
+    <div class="phase" style="border-color: rgba(52,211,153,0.3);">
+        <div class="phase-header">
+            <div class="phase-number" style="background: var(--green-bg); color: var(--green); width: auto; padding: 0 14px;">⭐</div>
+            <div class="phase-title">Recommended Priority</div>
+        </div>
+
+        <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">If you have very little time, concentrate on just these 8 skills — highest return for frontend development:</p>
+
+        <div class="priority-list">
+            <div class="priority-item"><div class="num">1</div>JavaScript<div class="arrow">→</div></div>
+            <div class="priority-item"><div class="num">2</div>DOM<div class="arrow">→</div></div>
+            <div class="priority-item"><div class="num">3</div>CSS Flexbox / Grid<div class="arrow">→</div></div>
+            <div class="priority-item"><div class="num">4</div>Responsive Design<div class="arrow">→</div></div>
+            <div class="priority-item"><div class="num">5</div>APIs<div class="arrow">→</div></div>
+            <div class="priority-item"><div class="num">6</div>Async / Await<div class="arrow">→</div></div>
+            <div class="priority-item"><div class="num">7</div>Git / GitHub<div class="arrow">→</div></div>
+            <div class="priority-item"><div class="num">8</div>React</div>
+        </div>
+    </div>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <div class="footer">
+        🚀 Fast-Track Frontend Development Roadmap &nbsp;·&nbsp; Keep building!
+    </div>
+
+</div>
+
+</body>
+</html>
